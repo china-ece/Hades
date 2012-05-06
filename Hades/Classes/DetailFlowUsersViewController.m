@@ -38,7 +38,7 @@
     NSMutableDictionary *submitBranch = [[NSMutableDictionary alloc] init];
     [submitBranch setValue:branch.pathid forKey:@"nodeid"];
     [submitBranch setValue:@"true" forKey:@"isToPerson"];
-    [submitBranch setValue:[userids JSONRepresentation] forKey:@"userids"];
+    [submitBranch setValue:[userids JSONString] forKey:@"userids"];
     NSMutableArray *submitTo = [[NSMutableArray alloc] init];
     [submitTo addObject:submitBranch];
     fpVC.submitTo = submitTo;

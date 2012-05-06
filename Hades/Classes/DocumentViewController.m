@@ -71,7 +71,7 @@
         [self.view setUserInteractionEnabled:YES];
         NSString *responseString = [request responseString];
         OLog(responseString);
-        if (responseString == nil || [[responseString JSONValue] objectForKey:@"status"] == [[NSNumber alloc] initWithBool:NO] ||[[[responseString JSONValue] objectForKey:@"data"] objectForKey:@"result"] == [[NSNumber alloc] initWithBool:NO]) {
+        if (responseString == nil || [[responseString objectFromJSONString] objectForKey:@"status"] == [[NSNumber alloc] initWithBool:NO] ||[[[responseString objectFromJSONString] objectForKey:@"data"] objectForKey:@"result"] == [[NSNumber alloc] initWithBool:NO]) {
             [[[UIAlertView alloc] initWithTitle:@"糟糕" message:@"保存失败了" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil] show];
         }else {
             document.version++;

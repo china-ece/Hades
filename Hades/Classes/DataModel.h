@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 china-ece. All rights reserved.
 //
 
-#import "SBJson.h"
+#import "JSONKit.h"
 
 @protocol DataModel <NSObject>
 

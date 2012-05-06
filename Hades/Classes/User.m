@@ -18,7 +18,7 @@
 + (User*)generateByJSONData:(NSString*)json
 {
     OLog(json);
-    id repr = [json JSONValue];
+    id repr = [json objectFromJSONString];
     if (repr && [repr objectForKey:@"status"] != nil && [repr objectForKey:@"status"] == [[NSNumber alloc] initWithBool:YES]) {
         return [[User alloc] initWithDictionary:[repr objectForKey:@"data"]];
     }

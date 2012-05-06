@@ -9,7 +9,7 @@
 #import "OAAPI.h"
 #import "User.h"
 #import "ASIFormDataRequest.h"
-#import "SBJson.h"
+#import "JSONKit.h"
 
 NSString *const baseURL = @"http://oa.china-ece.com:18081";
 //NSString *const baseURL = @"http://localhost:8080/obpm";
@@ -40,7 +40,7 @@ NSString *const baseURL = @"http://oa.china-ece.com:18081";
     NSString * url = [baseURL stringByAppendingString:@"/client/getPendings.action"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[[NSURL alloc] initWithString:url]];
     [request addPostValue:[User readFromAppDelegate].token forKey:@"token"];
-    [request addPostValue:[apps JSONRepresentation] forKey:@"params"];
+    [request addPostValue:[apps JSONString] forKey:@"params"];
     return request;
 }
 
@@ -50,7 +50,7 @@ NSString *const baseURL = @"http://oa.china-ece.com:18081";
     NSString * url = [baseURL stringByAppendingString:@"/client/getContacts.action"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[[NSURL alloc] initWithString:url]];
     [request addPostValue:[User readFromAppDelegate].token forKey:@"token"];
-    [request addPostValue:[searchDic JSONRepresentation] forKey:@"params"];
+    [request addPostValue:[searchDic JSONString] forKey:@"params"];
     return request;
 }
 
@@ -67,8 +67,8 @@ NSString *const baseURL = @"http://oa.china-ece.com:18081";
     NSString * url = [baseURL stringByAppendingString:@"/client/getDocument.action"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[[NSURL alloc] initWithString:url]];
     [request addPostValue:[User readFromAppDelegate].token forKey:@"token"];
-    [request addPostValue:[paramsDic JSONRepresentation] forKey:@"params"];
-//    OLog([url stringByAppendingFormat:@"?token=%@&params=%@", [User readFromAppDelegate].token, [paramsDic JSONRepresentation]]);
+    [request addPostValue:[paramsDic JSONString] forKey:@"params"];
+//    OLog([url stringByAppendingFormat:@"?token=%@&params=%@", [User readFromAppDelegate].token, [paramsDic JSONString]]);
     return request;
 }
 
@@ -89,18 +89,18 @@ NSString *const baseURL = @"http://oa.china-ece.com:18081";
     NSString * url = [baseURL stringByAppendingString:@"/client/saveDocument.action"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[[NSURL alloc] initWithString:url]];
     [request addPostValue:[User readFromAppDelegate].token forKey:@"token"];
-    [request addPostValue:[paramsDic JSONRepresentation] forKey:@"params"];
+    [request addPostValue:[paramsDic JSONString] forKey:@"params"];
     return request;
 }
 
 + (ASIHTTPRequest*)getSubmitRequestUsingAppID:(NSString*)appID usingDocID:(NSString*)docID usingVersion:(NSInteger)version usingSubmitTo:(NSArray*)submitTo usingNextIDS:(NSArray*)nextids usingCurrnodeID:(NSString*)currnodeID usingFlowType:(NSString*)flowType
 {
-    NSMutableDictionary *paramsDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:appID, @"appid", docID, @"docid", [NSNumber numberWithInteger:version], @"version", currnodeID, @"currnodeid", nextids, @"nextids", flowType, @"flowtype", submitTo == nil?@"":[submitTo JSONRepresentation], @"submitto", nil];
-    OLog([paramsDic JSONRepresentation]);
+    NSMutableDictionary *paramsDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:appID, @"appid", docID, @"docid", [NSNumber numberWithInteger:version], @"version", currnodeID, @"currnodeid", nextids, @"nextids", flowType, @"flowtype", submitTo == nil?@"":[submitTo JSONString], @"submitto", nil];
+    OLog([paramsDic JSONString]);
     NSString * url = [baseURL stringByAppendingString:@"/client/submitDocument.action"];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[[NSURL alloc] initWithString:url]];
     [request addPostValue:[User readFromAppDelegate].token forKey:@"token"];
-    [request addPostValue:[paramsDic JSONRepresentation] forKey:@"params"];
+    [request addPostValue:[paramsDic JSONString] forKey:@"params"];
     return request;
 }
 
