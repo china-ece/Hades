@@ -28,6 +28,14 @@
             CGSize labelsize = [self.displayValue sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
             field.frame = CGRectMake(5, 5, 310, labelsize.height == 0?75:labelsize.height+10);
         }
+        UIBarButtonItem *b1 = [[UIBarButtonItem alloc] initWithTitle:@"已阅" style:UIBarButtonItemStyleBordered target:self action:@selector(easyButtonPressed:)];
+        UIBarButtonItem *b2 = [[UIBarButtonItem alloc] initWithTitle:@"同意" style:UIBarButtonItemStyleBordered target:self action:@selector(easyButtonPressed:)];
+        UIBarButtonItem *b3 = [[UIBarButtonItem alloc] initWithTitle:@"不同意" style:UIBarButtonItemStyleBordered target:self action:@selector(easyButtonPressed:)];
+        NSMutableArray *buttons = [[NSMutableArray alloc] initWithObjects:b1,b2,b3, nil];
+        UIToolbar *easyInput = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 310, 50)];
+        easyInput.items = buttons;
+        field.inputAccessoryView = easyInput;
+        field.returnKeyType = UIReturnKeyDone;
         mappingControl = (UIControl*)field;
         
     }
@@ -77,6 +85,23 @@
         NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
         textView.text = [old stringByAppendingFormat:@"\n%@  %@  %@", append, [User readFromAppDelegate].name, [formatter stringFromDate:date]];
+        //redraw
+        UIFont *font = [UIFont systemFontOfSize:14];
+        CGSize size = CGSizeMake(310,2000.0f);
+        CGSize labelsize = [textView.text sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeWordWrap];
+        textView.frame = CGRectMake(5, 5, 310, labelsize.height == 0?75:labelsize.height+10);
+        [documentVC.tableView reloadData];
+    }
+}
+
+- (void)easyButtonPressed:(UIBarButtonItem*)sender
+{
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    UIView *responser = (UIView*)[keyWindow performSelector:@selector(findFirstResponser)];
+    if(responser != nil){
+        if ([responser isKindOfClass:[UITextView class]]) {
+            ((UITextView*)responser).text = sender.title;
+        }
     }
 }
 

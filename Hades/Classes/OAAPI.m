@@ -12,7 +12,7 @@
 #import "JSONKit.h"
 
 NSString *const baseURL = @"http://oa.china-ece.com:18081";
-//NSString *const baseURL = @"http://localhost:8080/obpm";
+//NSString *const baseURL = @"http://localhost:8080";
 //NSString *const baseURL = @"http://10.0.0.82:18081";
 
 @implementation OAAPI

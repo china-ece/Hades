@@ -25,6 +25,7 @@
 		A45F1ED915203D1B00F0F7A9 /* Document.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F1ED815203D1B00F0F7A9 /* Document.m */; };
 		A45F1EDF1520462700F0F7A9 /* DocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A45F1EDE1520462700F0F7A9 /* DocumentViewController.m */; };
 		A45F1EE11520769F00F0F7A9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A45F1EE01520769F00F0F7A9 /* Icon.png */; };
+		A4720F17159032A9007A8EF0 /* UIView+findFirstResponser.m in Sources */ = {isa = PBXBuildFile; fileRef = A4720F16159032A9007A8EF0 /* UIView+findFirstResponser.m */; };
 		A4823D9815564B5600D36391 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A4823D9715564B5600D36391 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A49CFB02152D968D0023ECBD /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A49CFAFF152D968D0023ECBD /* Icon-Small.png */; };
 		A49CFB03152D968D0023ECBD /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A49CFB00152D968D0023ECBD /* Icon-Small@2x.png */; };
@@ -105,6 +106,8 @@
 		A45F1EDD1520462700F0F7A9 /* DocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DocumentViewController.h; path = Classes/DocumentViewController.h; sourceTree = "<group>"; };
 		A45F1EDE1520462700F0F7A9 /* DocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = DocumentViewController.m; path = Classes/DocumentViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A45F1EE01520769F00F0F7A9 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Resources/Icon.png; sourceTree = "<group>"; };
+		A4720F15159032A9007A8EF0 /* UIView+findFirstResponser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+findFirstResponser.h"; path = "Classes/UIView+findFirstResponser.h"; sourceTree = "<group>"; };
+		A4720F16159032A9007A8EF0 /* UIView+findFirstResponser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+findFirstResponser.m"; path = "Classes/UIView+findFirstResponser.m"; sourceTree = "<group>"; };
 		A4823D9615564B5600D36391 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = JSONKit.h; path = Library/JSONkit/JSONKit.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A4823D9715564B5600D36391 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JSONKit.m; path = Library/JSONkit/JSONKit.m; sourceTree = "<group>"; };
 		A49CFAFF152D968D0023ECBD /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resources/Icon-Small.png"; sourceTree = "<group>"; };
@@ -366,6 +369,8 @@
 		A4D129091518113E00A5AC80 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A4720F15159032A9007A8EF0 /* UIView+findFirstResponser.h */,
+				A4720F16159032A9007A8EF0 /* UIView+findFirstResponser.m */,
 				A43EBA3E151AD41700B35DAF /* MainViewController.h */,
 				A43EBA3F151AD41700B35DAF /* MainViewController.m */,
 				A4D129051518111F00A5AC80 /* LoginViewController.h */,
@@ -537,6 +542,7 @@
 				A49CFB07152E90020023ECBD /* FlowPathViewController.m in Sources */,
 				A49CFB0A152EBEFD0023ECBD /* DetailFlowUsersViewController.m in Sources */,
 				A49CFB0D15306B9B0023ECBD /* CheckboxField.m in Sources */,
+				A4720F17159032A9007A8EF0 /* UIView+findFirstResponser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
